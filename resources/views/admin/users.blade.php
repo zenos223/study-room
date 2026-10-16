@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Users | StudySpace</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{ink:'#17211B',paper:'#F7F7F2',sage:'#DCE7DD',moss:'#53665A',line:'#E4E8E2'}}}}</script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>:root { --color-ink: #17211B; --color-paper: #F7F7F2; --color-sage: #DCE7DD; --color-moss: #53665A; --color-line: #E4E8E2; }</style>
 </head>
 <body class="bg-paper text-ink antialiased">
 <div class="min-h-screen lg:grid lg:grid-cols-[240px_1fr]">

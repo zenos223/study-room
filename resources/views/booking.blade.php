@@ -4,8 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Complete Booking — StudySpace</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{navy:'#0F172A',blue:'#2563EB',mist:'#F8FAFC',line:'#E2E8F0',muted:'#64748B'}}}}</script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <style>
+    :root {
+      --color-navy: #0F172A;
+      --color-blue: #2563EB;
+      --color-mist: #F8FAFC;
+      --color-line: #E2E8F0;
+      --color-muted: #64748B;
+    }
+  </style>
 </head>
 <body class="bg-mist text-navy antialiased">
 <header class="border-b border-line bg-white"><div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4"><a href="{{ route('home') }}" class="flex items-center gap-3 font-semibold"><span class="grid h-9 w-9 place-items-center rounded-full bg-navy text-white"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4.5h10.5A2.5 2.5 0 0 1 18 7v12H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17A2.5 2.5 0 0 1 7.5 19H18"/></svg></span>StudySpace</a><a href="{{ route('bookings.index') }}" class="text-sm font-medium text-muted">My bookings</a></div></header>
@@ -29,7 +37,7 @@
       @error('agreement')<p class="mt-2 text-sm text-red-700">{{ $message }}</p>@enderror
     </form>
 
-    <aside class="h-fit rounded-3xl border border-line bg-white p-6 shadow-sm"><p class="text-xs font-semibold uppercase tracking-wider text-muted">Reservation summary</p><div class="mt-5 flex gap-4"><img src="{{ $room->image_url ?: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=300&q=80' }}" class="h-20 w-24 rounded-2xl object-cover" alt="{{ $room->name }}"><div><p class="font-semibold">{{ $room->name }}</p><p class="mt-1 text-sm text-muted">{{ $room->building }} · {{ $room->floor }}</p><p class="mt-2 text-xs font-medium text-blue">{{ $room->capacity }} seats · {{ implode(', ', $room->equipment ?? []) }}</p></div></div><div class="mt-6 space-y-4 border-t border-line pt-5 text-sm"><div class="flex justify-between gap-4"><span class="text-muted">Date</span><span class="font-semibold text-right">{{ $startsAt->format('M j, Y') }}</span></div><div class="flex justify-between gap-4"><span class="text-muted">Time</span><span class="font-semibold text-right">{{ $startsAt->format('g:i A') }}–{{ $endsAt->format('g:i A') }}</span></div><div class="flex justify-between"><span class="text-muted">Duration</span><span class="font-semibold">1 hr 30 min</span></div></div><button form="bookingForm" type="submit" class="mt-6 block w-full rounded-2xl bg-blue px-4 py-3.5 text-center text-sm font-semibold text-white hover:bg-blue-700">Confirm booking</button><a href="{{ route('rooms.show', $room) }}?date={{ $selectedDate }}" class="mt-3 block text-center text-sm font-medium text-muted hover:text-navy">Change room or time</a></aside>
+      <aside class="h-fit rounded-3xl border border-line bg-white p-6 shadow-sm"><p class="text-xs font-semibold uppercase tracking-wider text-muted">Reservation summary</p><div class="mt-5 flex gap-4"><img src="{{ $room->image_url ?: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=300&q=80' }}" class="h-20 w-24 rounded-2xl object-cover" alt="{{ $room->name }}"><div><p class="font-semibold">{{ $room->name }}</p><p class="mt-1 text-sm text-muted">{{ $room->building }} · {{ $room->floor }}</p><p class="mt-2 text-xs font-medium text-blue">{{ $room->capacity }} seats · {{ implode(', ', $room->equipment ?? []) }}</p></div></div><div class="mt-6 space-y-4 border-t border-line pt-5 text-sm"><div class="flex justify-between gap-4"><span class="text-muted">Date</span><span class="font-semibold text-right">{{ $startsAt->format('M j, Y') }}</span></div><div class="flex justify-between gap-4"><span class="text-muted">Time</span><span class="font-semibold text-right">{{ $startsAt->format('g:i A') }}–{{ $endsAt->format('g:i A') }}</span></div><div class="flex justify-between"><span class="text-muted">Duration</span><span class="font-semibold">1 hr 30 min</span></div></div><button form="bookingForm" type="submit" class="mt-6 block w-full rounded-2xl bg-blue px-4 py-3.5 text-center text-sm font-semibold text-white hover:bg-blue-700">Confirm booking</button><a href="{{ route('rooms.show', $room) }}?date={{ $selectedDate }}" class="mt-3 block text-center text-sm font-medium text-muted hover:text-navy">Change room or time</a></aside>
   </div>
 </main>
 </body>

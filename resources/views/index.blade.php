@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StudySpace — Room Booking</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config={theme:{extend:{colors:{paper:'#F6F3EC',ink:'#202724',pine:'#173A34',sage:'#DCE7E1',line:'#D9DDD8',muted:'#66716C',sand:'#E9E1D2'}}}}
-  </script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-paper text-ink antialiased">
   <header class="border-b border-line bg-white">

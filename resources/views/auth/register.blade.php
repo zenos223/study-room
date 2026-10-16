@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create Account — StudySpace</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config={theme:{extend:{colors:{paper:'#F6F3EC',ink:'#202724',pine:'#173A34',sage:'#DCE7E1',line:'#D9DDD8',muted:'#66716C',sand:'#E9E1D2'}}}}
-  </script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-white text-ink antialiased">
   <header class="border-b border-line bg-white">
@@ -38,8 +35,8 @@
           </label>
 
           <label class="block">
-            <span class="text-sm font-medium">Student ID</span>
-            <input type="text" name="student_id" value="{{ old('student_id') }}" placeholder="e.g. 2026-1042" required class="mt-2 w-full border border-line bg-white px-4 py-3 text-sm outline-none focus:border-pine focus:ring-1 focus:ring-pine" />
+            <span class="text-sm font-medium">Your Birthday</span>
+            <input type="text" name="student_id" value="{{ old('student_id') }}" placeholder="Your Birthday Date" required class="mt-2 w-full border border-line bg-white px-4 py-3 text-sm outline-none focus:border-pine focus:ring-1 focus:ring-pine" />
             @error('student_id')<span class="mt-1 block text-sm text-red-700">{{ $message }}</span>@enderror
           </label>
 

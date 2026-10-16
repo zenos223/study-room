@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ $room->name }} — StudySpace</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{navy:'#202724',blue:'#173A34',sky:'#DCE7E1',mist:'#F6F3EC',line:'#D9DDD8',muted:'#66716C',pine:'#173A34',paper:'#F6F3EC',sage:'#DCE7E1'}}}}</script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-mist text-navy antialiased">
   <header class="border-b border-line bg-white">
@@ -20,7 +19,7 @@
 
     <div class="mt-6 grid gap-8 lg:grid-cols-[1.15fr_.85fr]">
       <section>
-        <div class="overflow-hidden rounded-[1.75rem] bg-slate-200"><img src="{{ $room->image_url ?: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=85' }}" alt="{{ $room->name }}" class="h-[360px] w-full object-cover sm:h-[460px]"></div>
+          <div class="overflow-hidden rounded-[1.75rem] bg-slate-200"><img src="{{ $room->image_url ?: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=85' }}" alt="{{ $room->name }}" class="h-[360px] w-full object-cover sm:h-[460px]"></div>
         <div class="mt-7 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div><div class="flex items-center gap-2 text-sm font-semibold text-blue"><span>{{ $room->building }}</span><span class="text-slate-300">•</span><span>{{ $room->floor }}{{ $room->location ? ' · '.$room->location : '' }}</span></div><h1 class="mt-2 text-4xl font-semibold tracking-[-0.035em] sm:text-5xl">{{ $room->name }}</h1><p class="mt-4 max-w-2xl leading-7 text-muted">{{ $room->description }}</p></div>
           <span class="w-fit rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">{{ $slots->contains('available', true) ? 'Available' : 'No times available' }}</span>
